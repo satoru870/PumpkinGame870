@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#10232c">
+  <title>スライス・クエスト | Slice Quest</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="スライス・クエスト ホーム">
+        <span class="brand-mark">/</span>
+        <span><strong>SLICE</strong><small>QUEST</small></span>
+      </a>
+      <div class="header-stats" aria-label="プレイヤー情報">
+        <div class="stat-chip"><span class="stat-icon coin-icon">◆</span><strong id="coin-count">240</strong></div>
+        <div class="stat-chip"><span class="stat-icon spark-icon">✦</span><strong id="star-count">12</strong></div>
+        <button class="icon-button" type="button" aria-label="設定">•••</button>
+      </div>
+    </header>
+
+    <section class="hero-panel">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="live-dot"></span> HALLOWEEN NIGHT / 04</p>
+        <h1>おばけを切って、<em>夜を楽しむ。</em></h1>
+        <p class="hero-description">夜空を飛び交うおばけパンプキンをスラッシュ。本物のパンプキンには要注意。</p>
+      </div>
+      <div class="rank-badge"><span>HERO</span><strong>04</strong><small>RANK</small></div>
+    </section>
+
+    <section class="mission-row">
+      <div class="mission-text"><span class="mission-label">HALLOWEEN QUEST</span><strong id="mission-text">おばけパンプキンを集めよう。</strong><span id="mission-detail">おばけを3体、正確にスラッシュ</span></div>
+      <div class="progress-wrap"><span id="mission-progress-label">2 / 3</span><div class="progress-track"><span id="mission-progress"></span></div></div>
+    </section>
+
+    <section class="game-layout">
+      <div class="play-column">
+        <div class="stage-head"><div><span class="stage-kicker">PUMPKIN NIGHT</span><h2 id="stage-title">Pumpkin Ghost</h2></div><span class="stage-level" id="stage-level">LV. 04</span></div>
+        <div class="game-frame" id="game-frame">
+          <canvas id="game-canvas" aria-label="おばけパンプキンをスワイプして切るゲーム画面"></canvas>
+          <div class="slice-counter" aria-label="スライス数"><div><span class="counter-icon ghost-counter-icon">✦</span><small>おばけ</small><strong id="ghost-count">0</strong></div><div><span class="counter-icon pumpkin-counter-icon">●</span><small>本物</small><strong id="real-count">0</strong></div></div>
+          <div class="stage-hint" id="stage-hint"><span class="hint-arrow">↗</span><span>スワイプして<br><b>ゴーストスラッシュ</b></span></div>
+          <div class="combo-display" id="combo-display"><small>COMBO</small><strong>0</strong></div>
+          <div class="round-message" id="round-message"></div>
+        </div>
+        <div class="game-controls"><div><span class="control-dot"></span>おばけだけをスラッシュ</div><div><span class="control-time">00:<b id="time-left">30</b></span></div></div>
+      </div>
+
+      <aside class="atelier-panel">
+        <div class="panel-heading"><span>ACTIVE PARTY</span><button class="text-button" id="reset-button" type="button">リセット</button></div>
+        <div class="character-card" id="character-card">
+          <div class="battle-glow"></div><div class="character-stars">✦　✧　✦</div>
+          <div class="hero-character level-1" id="hero-character"><span class="hero-aura"></span><span class="hero-cape"></span><span class="hero-head"></span><span class="hero-hair"></span><span class="hero-body"></span><span class="hero-sword"></span></div>
+          <div class="character-level"><span>HERO LEVEL</span><strong id="hero-level">01</strong></div>
+          <div class="character-info"><span class="character-class">BLADE RUNNER</span><strong id="hero-name">アッシュ</strong><small id="hero-title">森を守る見習い勇者</small></div>
+          <div class="xp-row"><span>EXP</span><div class="xp-track"><i id="hero-xp"></i></div><b id="hero-xp-label">0 / 300</b></div>
+        </div>
+        <div class="party-slots"><div class="party-slot active"><span class="slot-avatar slime-avatar"></span><b>アッシュ</b><small>勇者</small></div><div class="party-slot"><span class="slot-avatar mage-avatar"></span><b>？？？</b><small>未加入</small></div><div class="party-slot"><span class="slot-avatar dragon-avatar"></span><b>？？？</b><small>未加入</small></div></div>
+        <div class="upgrade-card"><div><span class="upgrade-eyebrow">NEXT RECRUIT</span><strong id="next-build">森の魔法使い</strong></div><button class="build-button" id="build-button" type="button">仲間にする <span>→</span></button><div class="build-cost"><span>◆</span> <b id="build-cost">180</b> / 300</div></div>
+      </aside>
+    </section>
+
+    <section class="bottom-strip"><div><span class="strip-label">QUEST GUIDE AI</span><p id="ai-message">勇者の一閃が決まった。次は森の奥へ進もう。</p></div><button class="next-button" id="next-button" type="button">次のクエスト <span>↗</span></button></section>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
